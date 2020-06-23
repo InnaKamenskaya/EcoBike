@@ -35,11 +35,11 @@ public class App {
             if (file.exists()) {
                 ConsoleUI ui = new ConsoleUI(path);
                 ui.start(vehicleService, this);
-            }else {
+            } else {
                 System.out.println(Utils.ANSI_RED + "Not valid path to the file, try again" + Utils.ANSI_RESET);
                 run();
             }
-        }catch (IOException e){
+        } catch (IOException e) {
             System.out.println(Utils.ANSI_RED + "Not valid path to the file, try again" + Utils.ANSI_RESET);
             LOGGER.error(e.getMessage());
         }
@@ -49,7 +49,7 @@ public class App {
         if (vehicleService.getStringBikes().isEmpty()) {
             System.out.println("Program is closed");
             System.exit(0);
-        }else {
+        } else {
             System.out.println(Utils.ANSI_RED + "Application retain unsaved data, please write it to file before exit" + Utils.ANSI_RESET);
             ui = new ConsoleUI(path);
             ui.start(vehicleService, this);

@@ -7,7 +7,7 @@ import org.example.util.Utils;
 
 import java.math.BigDecimal;
 
-public enum  VehicleType {
+public enum VehicleType {
 
     E_BIKE {
         @Override
@@ -53,5 +53,5 @@ public enum  VehicleType {
         }
     };
 
-    public abstract AbstractVehicle buildVehicle(String source) ;
+    public abstract AbstractVehicle buildVehicle(String source);
 }

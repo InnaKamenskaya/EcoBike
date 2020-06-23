@@ -1,4 +1,5 @@
 package org.example.model.dao.impl;
+
 import org.example.model.dao.ElectroVehicleDAO;
 import org.example.model.entities.ElectroVehicle;
 
@@ -6,13 +7,14 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class ElectroVehicleDAOImpl  implements ElectroVehicleDAO {
+public class ElectroVehicleDAOImpl implements ElectroVehicleDAO {
 
     private static ElectroVehicleDAOImpl electroVehicleDAO = new ElectroVehicleDAOImpl();
 
-    private ElectroVehicleDAOImpl(){}
+    private ElectroVehicleDAOImpl() {
+    }
 
-    static ElectroVehicleDAOImpl getInstance(){
+    static ElectroVehicleDAOImpl getInstance() {
         return electroVehicleDAO;
     }
 
@@ -23,12 +25,12 @@ public class ElectroVehicleDAOImpl  implements ElectroVehicleDAO {
 
     @Override
     public List<ElectroVehicle> findByWeight(List<ElectroVehicle> source, int weight) {
-        return source.stream().filter(s -> s.getWeight()==weight).collect(Collectors.toList());
+        return source.stream().filter(s -> s.getWeight() == weight).collect(Collectors.toList());
     }
 
     @Override
     public List<ElectroVehicle> findByLights(List<ElectroVehicle> source, boolean isLights) {
-        return source.stream().filter(s -> s.isHasLights()==isLights).collect(Collectors.toList());
+        return source.stream().filter(s -> s.isHasLights() == isLights).collect(Collectors.toList());
     }
 
     @Override
@@ -43,7 +45,7 @@ public class ElectroVehicleDAOImpl  implements ElectroVehicleDAO {
 
     @Override
     public List<ElectroVehicle> findByBatteryCapacity(List<ElectroVehicle> source, int batteryCapacity) {
-        return source.stream().filter(s -> s.getBatteryCapacity()==batteryCapacity).collect(Collectors.toList());
+        return source.stream().filter(s -> s.getBatteryCapacity() == batteryCapacity).collect(Collectors.toList());
     }
 
     @Override

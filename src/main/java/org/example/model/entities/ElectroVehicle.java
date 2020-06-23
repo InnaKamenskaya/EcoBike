@@ -4,7 +4,7 @@ import org.apache.commons.lang3.builder.CompareToBuilder;
 
 import java.util.Objects;
 
-public abstract class ElectroVehicle extends AbstractVehicle implements Comparable<ElectroVehicle>{
+public abstract class ElectroVehicle extends AbstractVehicle implements Comparable<ElectroVehicle> {
 
     private int maxSpeed;
     private int batteryCapacity;
@@ -40,25 +40,26 @@ public abstract class ElectroVehicle extends AbstractVehicle implements Comparab
         return Objects.hash(super.hashCode(), maxSpeed, batteryCapacity);
     }
 
-    public boolean isContainsAllParams(){
-        if (this.getBrand() == null){
+    public boolean isContainsAllParams() {
+        if (this.getBrand() == null) {
             return false;
-        }else if (this.getMaxSpeed() == 0){
+        } else if (this.getMaxSpeed() == 0) {
             return false;
-        }else if (this.getWeight() == 0){
+        } else if (this.getWeight() == 0) {
             return false;
-        }else if (this.isHasLights() == null){
+        } else if (this.isHasLights() == null) {
             return false;
-        }else if(this.getBatteryCapacity() == 0){
+        } else if (this.getBatteryCapacity() == 0) {
             return false;
-        }else if(this.getColor() == null){
+        } else if (this.getColor() == null) {
             return false;
-        }else if(this.getPrice() == null){
+        } else if (this.getPrice() == null) {
             return false;
-        }else {
+        } else {
             return true;
         }
     }
+
     @Override
     public int compareTo(ElectroVehicle bike2) {
         return new CompareToBuilder()

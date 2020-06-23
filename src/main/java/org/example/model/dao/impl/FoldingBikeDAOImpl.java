@@ -19,9 +19,10 @@ public class FoldingBikeDAOImpl implements FoldingBikeDAO {
     private static final Logger LOGGER = Logger.getLogger(FoldingBikeDAOImpl.class);
     private static FoldingBikeDAOImpl foldingBikeDAO = new FoldingBikeDAOImpl();
 
-    private FoldingBikeDAOImpl(){}
+    private FoldingBikeDAOImpl() {
+    }
 
-    static FoldingBikeDAOImpl getInstance(){
+    static FoldingBikeDAOImpl getInstance() {
         return foldingBikeDAO;
     }
 
@@ -29,8 +30,8 @@ public class FoldingBikeDAOImpl implements FoldingBikeDAO {
     public List<FoldingBike> findAllFoldingBikes(String source) {
         List<AbstractVehicle> vehicles = VehicleDAOImpl.getInstance().findAll(source);
         ArrayList<FoldingBike> dest = new ArrayList<>();
-        for (AbstractVehicle vehicle : vehicles){
-            if (vehicle instanceof FoldingBike){
+        for (AbstractVehicle vehicle : vehicles) {
+            if (vehicle instanceof FoldingBike) {
                 dest.add((FoldingBike) vehicle);
             }
         }
@@ -44,12 +45,12 @@ public class FoldingBikeDAOImpl implements FoldingBikeDAO {
 
     @Override
     public List<FoldingBike> findByWeight(List<FoldingBike> source, int weight) {
-        return source.stream().filter(s -> s.getWeight()==weight).collect(Collectors.toList());
+        return source.stream().filter(s -> s.getWeight() == weight).collect(Collectors.toList());
     }
 
     @Override
     public List<FoldingBike> findByLights(List<FoldingBike> source, boolean isLights) {
-        return source.stream().filter(s -> s.isHasLights()==isLights).collect(Collectors.toList());
+        return source.stream().filter(s -> s.isHasLights() == isLights).collect(Collectors.toList());
     }
 
     @Override
@@ -64,12 +65,12 @@ public class FoldingBikeDAOImpl implements FoldingBikeDAO {
 
     @Override
     public List<FoldingBike> findByWheelSize(List<FoldingBike> source, int wheelSize) {
-        return source.stream().filter(s -> s.getWheelSize()==wheelSize).collect(Collectors.toList());
+        return source.stream().filter(s -> s.getWheelSize() == wheelSize).collect(Collectors.toList());
     }
 
     @Override
     public List<FoldingBike> findByGearsNumber(List<FoldingBike> source, int gearsNumber) {
-        return source.stream().filter(s -> s.getGearsNumber()==gearsNumber).collect(Collectors.toList());
+        return source.stream().filter(s -> s.getGearsNumber() == gearsNumber).collect(Collectors.toList());
     }
 
     @Override
@@ -79,55 +80,55 @@ public class FoldingBikeDAOImpl implements FoldingBikeDAO {
         try {
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
             String value = reader.readLine();
-            while (!Utils.checkInputStringValue(value)){
+            while (!Utils.checkInputStringValue(value)) {
                 System.out.println("Try again ...");
                 value = reader.readLine();
             }
             builder.append(value + "; ");
             System.out.println("Please, enter size of the wheels (in inch) ");
             value = reader.readLine();
-            while (!Utils.checkInputIntegerValue(value)){
+            while (!Utils.checkInputIntegerValue(value)) {
                 System.out.println("Try again ...");
                 value = reader.readLine();
             }
             builder.append(value + "; ");
             System.out.println("Please, enter the number of gears");
             value = reader.readLine();
-            while (!Utils.checkInputIntegerValue(value)){
+            while (!Utils.checkInputIntegerValue(value)) {
                 System.out.println("Try again ...");
                 value = reader.readLine();
             }
             builder.append(value + "; ");
             System.out.println("Please, enter the weight of the bike (in grams)");
             value = reader.readLine();
-            while (!Utils.checkInputIntegerValue(value)){
+            while (!Utils.checkInputIntegerValue(value)) {
                 System.out.println("Try again ...");
                 value = reader.readLine();
             }
             builder.append(value + "; ");
             System.out.println("Please, enter the availability of lights at front and back (TRUE/FALSE) ");
             value = reader.readLine();
-            while (!Utils.checkInputBooleanValue(value)){
+            while (!Utils.checkInputBooleanValue(value)) {
                 System.out.println("Try again ...");
                 value = reader.readLine();
             }
             builder.append(value + "; ");
             System.out.println("Please, enter a color");
             value = reader.readLine();
-            while (!Utils.checkInputStringValue(value)){
+            while (!Utils.checkInputStringValue(value)) {
                 System.out.println("Try again ...");
                 value = reader.readLine();
             }
             builder.append(value + "; ");
             System.out.println("Please, enter the price");
             value = reader.readLine();
-            while (!Utils.checkInputBigIntegerValue(value)){
+            while (!Utils.checkInputBigIntegerValue(value)) {
                 System.out.println("Try again ...");
                 value = reader.readLine();
             }
             builder.append(value);
             return builder.toString();
-        }catch (IOException e){
+        } catch (IOException e) {
             LOGGER.error("Could not create new folding bike: " + e.getMessage());
             return null;
         }

@@ -12,11 +12,11 @@ public class FileDataSource {
 
     private static final Logger LOGGER = Logger.getLogger(FileDataSource.class);
 
-    public static List<String> readFile(String path){
+    public static List<String> readFile(String path) {
         List<String> list = new ArrayList<>();
         try {
             list = Files.readAllLines(Paths.get(path));
-        }catch (IOException e){
+        } catch (IOException e) {
             LOGGER.error(e.getMessage());
         }
         return list;

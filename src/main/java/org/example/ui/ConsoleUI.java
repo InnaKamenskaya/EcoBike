@@ -18,7 +18,7 @@ public class ConsoleUI {
         this.path = path;
     }
 
-    public void start(VehicleService vehicleService, App app){
+    public void start(VehicleService vehicleService, App app) {
 
         try {
             Menu menu = new Menu("Please, enter number of your choice:\n" +
@@ -30,34 +30,34 @@ public class ConsoleUI {
                     "6 – Write to file\n" +
                     "7 – Stop the program ");
             int choice = 0;
-            do{
+            do {
                 choice = menu.run();
-                switch (choice){
-                    case 1:{
+                switch (choice) {
+                    case 1: {
                         vehicleService.showAll(path).stream().forEach(System.out::println);
                     }
                     break;
-                    case 2:{
+                    case 2: {
                         vehicleService.createBike(VehicleType.FOLDING_BIKE);
                     }
                     break;
-                    case 3:{
+                    case 3: {
                         vehicleService.createBike(VehicleType.SPEEDELEC);
                     }
                     break;
-                    case 4:{
+                    case 4: {
                         vehicleService.createBike(VehicleType.E_BIKE);
                     }
                     break;
-                    case 5:{
+                    case 5: {
                         vehicleService.getSearchResult(path);
                     }
                     break;
-                    case 6:{
+                    case 6: {
                         vehicleService.writeToFile(path);
                     }
                     break;
-                    case 7:{
+                    case 7: {
                         app.stopProgram();
                     }
                     break;
@@ -65,12 +65,14 @@ public class ConsoleUI {
                         System.out.println(Utils.ANSI_RED + "Please enter number of your choice" + Utils.ANSI_RESET);
                         break;
                 }
-            }while (0 < choice);
-        }catch (IOException e){
-            LOGGER.error( e.getMessage());
-        }catch (NumberFormatException e){
+            } while (0 < choice);
+        } catch (IOException e) {
+            LOGGER.error(e.getMessage());
+        } catch (NumberFormatException e) {
             System.out.println(Utils.ANSI_RED + "Select the number in the menu below" + Utils.ANSI_RESET);
             start(vehicleService, app);
         }
     }
+
+
 }

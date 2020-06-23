@@ -13,14 +13,16 @@ import java.util.List;
 public interface VehicleDAO {
     /**
      * Finds all vehicles despite the type.
+     *
      * @return list of all vehicles.
      */
     List<AbstractVehicle> findAll(String source);
 
     /**
      * Tries to write all created vehicles into the file on the specified path.
+     *
      * @param source list of vehicles.
-     * @param path path to the file.
+     * @param path   path to the file.
      * @return true if recording was successful, false otherwise.
      */
     boolean insert(List<String> source, String path);

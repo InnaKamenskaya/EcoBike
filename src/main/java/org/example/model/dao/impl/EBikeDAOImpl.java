@@ -18,9 +18,10 @@ public class EBikeDAOImpl implements EBikeDAO {
     private static final Logger LOGGER = Logger.getLogger(EBikeDAOImpl.class);
     private static EBikeDAOImpl eBikeDAO = new EBikeDAOImpl();
 
-    private EBikeDAOImpl(){}
+    private EBikeDAOImpl() {
+    }
 
-    static EBikeDAOImpl getInstance(){
+    static EBikeDAOImpl getInstance() {
         return eBikeDAO;
     }
 
@@ -28,8 +29,8 @@ public class EBikeDAOImpl implements EBikeDAO {
     public List<EBike> findAllEBike(String source) {
         List<AbstractVehicle> vehicles = VehicleDAOImpl.getInstance().findAll(source);
         ArrayList<EBike> dest = new ArrayList<>();
-        for (AbstractVehicle vehicle : vehicles){
-            if (vehicle instanceof EBike){
+        for (AbstractVehicle vehicle : vehicles) {
+            if (vehicle instanceof EBike) {
                 dest.add((EBike) vehicle);
             }
         }
@@ -37,62 +38,62 @@ public class EBikeDAOImpl implements EBikeDAO {
     }
 
     @Override
-    public String create(){
+    public String create() {
         StringBuilder builder = new StringBuilder("E-BIKE ");
         System.out.println("Please, enter brand name");
         BufferedReader reader = null;
         try {
             reader = new BufferedReader(new InputStreamReader(System.in));
             String value = reader.readLine();
-            while (!Utils.checkInputStringValue(value)){
+            while (!Utils.checkInputStringValue(value)) {
                 System.out.println("Try again ...");
                 value = reader.readLine();
             }
             builder.append(value + "; ");
             System.out.println("Please, enter the maximum speed (in km/h)  ");
             value = reader.readLine();
-            while (!Utils.checkInputIntegerValue(value)){
+            while (!Utils.checkInputIntegerValue(value)) {
                 System.out.println("Try again ...");
                 value = reader.readLine();
             }
             builder.append(value + "; ");
             System.out.println("Please, enter the weight of the bike (in grams)");
             value = reader.readLine();
-            while (!Utils.checkInputIntegerValue(value)){
+            while (!Utils.checkInputIntegerValue(value)) {
                 System.out.println("Try again ...");
                 value = reader.readLine();
             }
             builder.append(value + "; ");
             System.out.println("Please, enter the availability of lights at front and back (TRUE/FALSE) ");
             value = reader.readLine();
-            while (!Utils.checkInputBooleanValue(value)){
+            while (!Utils.checkInputBooleanValue(value)) {
                 System.out.println("Try again ...");
                 value = reader.readLine();
             }
             builder.append(value + "; ");
             System.out.println("Please, enter the battery capacity (in mAh)");
             value = reader.readLine();
-            while (!Utils.checkInputIntegerValue(value)){
+            while (!Utils.checkInputIntegerValue(value)) {
                 System.out.println("Try again ...");
                 value = reader.readLine();
             }
             builder.append(value + "; ");
             System.out.println("Please, enter a color");
             value = reader.readLine();
-            while (!Utils.checkInputStringValue(value)){
+            while (!Utils.checkInputStringValue(value)) {
                 System.out.println("Try again ...");
                 value = reader.readLine();
             }
             builder.append(value + "; ");
             System.out.println("Please, enter the price");
             value = reader.readLine();
-            while (!Utils.checkInputBigIntegerValue(value)){
+            while (!Utils.checkInputBigIntegerValue(value)) {
                 System.out.println("Try again ...");
                 value = reader.readLine();
             }
             builder.append(value);
             return builder.toString();
-        }catch (IOException e){
+        } catch (IOException e) {
             LOGGER.error("Could not create new e-bike: " + e.getMessage());
             return null;
         }

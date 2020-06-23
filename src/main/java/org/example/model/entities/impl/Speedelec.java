@@ -8,7 +8,7 @@ public class Speedelec extends ElectroVehicle {
     public String toString() {
         String aboutLights = isHasLights() ? "head/tail light." : "no head/tail light.";
         return this.getClass().getSimpleName().toUpperCase() + " " +
-                this.getBrand() + " with "  + this.getBatteryCapacity() + " mAh battery and " + aboutLights
+                this.getBrand() + " with " + this.getBatteryCapacity() + " mAh battery and " + aboutLights
                 + '\n' + "Price: " + this.getPrice() + " euros.";
     }
 }
